@@ -4,7 +4,7 @@ import { urlFor } from '../library/client';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
 
-const SearchProductAndCategories = ({ imageProps, data, selectedValue }) => {
+const SearchProductAndCategories = ({  data, selectedValue }) => {
   const [filteredName, setFilteredName] = useState([]);
   const [word, setWord] = useState('');
 

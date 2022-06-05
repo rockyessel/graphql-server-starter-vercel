@@ -15,7 +15,6 @@ const Search = ({ result }) => {
       </Head>
       <div>
         <SearchProductAndCategories
-          imageProps={imageProps}
           data={result}
           selectedValue={selectedValue}
           setSelectedValue={setSelectedValue}
