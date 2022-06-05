@@ -15,7 +15,7 @@ const Product = ({ products }) => {
             <div className={css.center}>
               <img
                 className={css.productImage}
-                src={urlFor(item?.image[0])}
+                src={urlFor(item?.image[0]).url()}
                 alt={item?.slug.current}
                 loading='lazy'
               />
