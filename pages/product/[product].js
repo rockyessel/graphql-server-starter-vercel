@@ -18,18 +18,18 @@ import 'react-medium-image-zoom/dist/styles.css';
 import { useManageContext } from '../../context/ManageStateContext';
 import { Footer } from '../../components';
 
-const ProductCredentials = () => {
+const ProductCredentials = ({ singleProduct, commentProduct }) => {
   // Querying for data from backend (SANITY)
 
   const [index, setIndex] = useState(0);
-  // const {
-  //   _id,
-  //   name,
-  //   image,
-  //   slug: { current },
-  //   description,
-  //   new_price,
-  // } = singleProduct;
+  const {
+    _id,
+    name,
+    image,
+    slug: { current },
+    description,
+    new_price,
+  } = singleProduct;
 
   const {
     addToCart,
@@ -63,7 +63,7 @@ const ProductCredentials = () => {
 
     // @desc, putting all value to one place, Object
     const formObj = {
-      _id: 'jthguftufytuiytufyug',
+      _id,
       username,
       email,
       comment,
@@ -122,7 +122,7 @@ const ProductCredentials = () => {
           </Link>
         </section>
 
-        {/* <section className={css.productSection}>
+        <section className={css.productSection}>
           <div className={css.imageSection}>
             <div className={css.image}>
               <div className={css.hide}>
@@ -205,9 +205,9 @@ const ProductCredentials = () => {
               </button>
             </div>
           </div>
-        </section> */}
+        </section>
 
-        {/* <section className={css.productComment}>
+        <section className={css.productComment}>
           <div className={css.formContainer}>
             <form className={css.form} onSubmit={handleOnSubmit}>
               <section className={css.inputContainer}>
@@ -269,7 +269,7 @@ const ProductCredentials = () => {
               <div className={css.commentSectionBox}>
                 <div className={css.headerComment}>
                   <span className={css.commentNumber}>
-                    {displayComment.length}
+                    {commentProduct.commentsData.length}
                   </span>
                   <h1 className={css.headerText}>Comment Section</h1>
                 </div>
@@ -305,7 +305,7 @@ const ProductCredentials = () => {
               <span>Be the first to leave a comment</span>
             )}
           </div>
-        </section> */}
+        </section>
 
         <Footer />
       </div>
@@ -354,7 +354,12 @@ export const getStaticProps = async ({ params: { product } }) => {
   const singleProduct = await client.fetch(queryProduct);
   const commentProduct = await client.fetch(queryComment);
 
-  if (!singleProduct || !commentProduct) {
+  if (!singleProduct) {
+    return {
+      No_Data: true,
+      data: [],
+    };
+  } else if (!commentProduct) {
     return {
       No_Data: true,
       data: [],
@@ -364,7 +369,7 @@ export const getStaticProps = async ({ params: { product } }) => {
       // And passing the data to props, to render it later.
       props: {
         singleProduct,
-        // commentProduct: JSON.parse(JSON.stringify(commentProduct)),
+        commentProduct: JSON.parse(JSON.stringify(commentProduct)),
       },
     };
   }
