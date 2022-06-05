@@ -24,14 +24,14 @@ const ProductCredentials = () => {
 
 
   const [index, setIndex] = useState(0);
-  const {
-    _id,
-    name,
-    image,
-    slug: { current },
-    description,
-    new_price,
-  } = singleProduct;
+  // const {
+  //   _id,
+  //   name,
+  //   image,
+  //   slug: { current },
+  //   description,
+  //   new_price,
+  // } = singleProduct;
 
   const {
     addToCart,
@@ -65,7 +65,7 @@ const ProductCredentials = () => {
 
     // @desc, putting all value to one place, Object
     const formObj = {
-      _id,
+      _id: 'jthguftufytuiytufyug',
       username,
       email,
       comment,
