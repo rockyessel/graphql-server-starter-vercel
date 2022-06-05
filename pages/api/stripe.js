@@ -13,6 +13,8 @@ export default async function handler(req, res) {
         billing_address_collection: 'auto',
         shipping_options: [{ shipping_rate: 'shr_1L3le6L08BYUDEnsMFKckcXQ' }],
         line_items: req.body.map((item) => {
+          const imageP = urlFor(item.image[0]).url();
+          console.log(imageP);
           const img = item.image[0].asset._ref;
           const newImage = img
             .replace(
