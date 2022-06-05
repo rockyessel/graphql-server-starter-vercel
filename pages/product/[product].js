@@ -18,12 +18,10 @@ import 'react-medium-image-zoom/dist/styles.css';
 import { useManageContext } from '../../context/ManageStateContext';
 import { Footer } from '../../components';
 
-const ProductCredentials = ({ singleProduct, commentProduct }) => {
+const ProductCredentials = ({ singleProduct }) => {
   // Querying for data from backend (SANITY)
 
-  console.log(commentProduct);
 
- commentProduct.commentsData;
 
   const [index, setIndex] = useState(0);
   const {
@@ -210,7 +208,7 @@ const ProductCredentials = ({ singleProduct, commentProduct }) => {
           </div>
         </section>
 
-        <section className={css.productComment}>
+        {/* <section className={css.productComment}>
           <div className={css.formContainer}>
             <form className={css.form} onSubmit={handleOnSubmit}>
               <section className={css.inputContainer}>
@@ -308,7 +306,7 @@ const ProductCredentials = ({ singleProduct, commentProduct }) => {
               <span>Be the first to leave a comment</span>
             )}
           </div>
-        </section>
+        </section> */}
 
         <Footer />
       </div>
@@ -367,7 +365,7 @@ export const getStaticProps = async ({ params: { product } }) => {
       // And passing the data to props, to render it later.
       props: {
         singleProduct,
-        commentProduct: JSON.parse(JSON.stringify(commentProduct)),
+        // commentProduct: JSON.parse(JSON.stringify(commentProduct)),
       },
     };
   }
