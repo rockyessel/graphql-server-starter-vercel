@@ -77,11 +77,18 @@ export const getStaticProps = async ({ params: { category } }) => {
 
   const categorySlug = await client.fetch(query);
 
-  return {
-    props: {
-      categorySlug,
-    },
-  };
+  if (!categorySlug) {
+    return {
+      NO_Data: true,
+      data: [],
+    };
+  } else {
+    return {
+      props: {
+        categorySlug,
+      },
+    };
+  }
 };
 
 export default Category;

@@ -42,11 +42,20 @@ export const getServerSideProps = async () => {
   const products = await client.fetch(productsQuery);
   const categories = await client.fetch(categoryQuery);
 
-  return {
-    // props that will be passed to the component
-    props: {
-      products,
-      categories,
-    },
-  };
+  if (!products ?? !categories) {
+    return {
+      props: {
+        NO_Data: true,
+        DATA: [],
+      },
+    };
+  } else {
+    return {
+      // props that will be passed to the component
+      props: {
+        products,
+        categories,
+      },
+    };
+  }
 };

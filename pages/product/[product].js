@@ -348,13 +348,20 @@ export const getStaticProps = async ({ params: { product } }) => {
   const singleProduct = await client.fetch(queryProduct);
   const commentProduct = await client.fetch(queryComment);
 
-  return {
-    // And passing the data to props, to render it later.
-    props: {
-      singleProduct,
-      commentProduct,
-    },
-  };
+  
+  if (!singleProduct || !commentProduct) {
+    return {
+      No_Data: [],
+    };
+  } else {
+    return {
+      // And passing the data to props, to render it later.
+      props: {
+        singleProduct,
+        commentProduct,
+      },
+    };
+  }
 };
 
 export default ProductCredentials;
