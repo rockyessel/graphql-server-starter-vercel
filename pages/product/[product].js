@@ -354,12 +354,7 @@ export const getStaticProps = async ({ params: { product } }) => {
   const singleProduct = await client.fetch(queryProduct);
   const commentProduct = await client.fetch(queryComment);
 
-  if (!singleProduct) {
-    return {
-      No_Data: true,
-      data: [],
-    };
-  } else if (!commentProduct) {
+  if (!singleProduct && !commentProduct) {
     return {
       No_Data: true,
       data: [],
@@ -373,6 +368,12 @@ export const getStaticProps = async ({ params: { product } }) => {
       },
     };
   }
+  // else if (!commentProduct) {
+  //   return {
+  //     No_Data: true,
+  //     data: [],
+  //   };
+  // }
 };
 
 export default ProductCredentials;
