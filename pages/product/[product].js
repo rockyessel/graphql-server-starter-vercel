@@ -168,7 +168,7 @@ const ProductCredentials = ({ singleProduct, commentProduct }) => {
                 dataset='production'
               />
             </div>
-            <span className={css.price}>${new_price}</span>
+            <span className={css.price}>${singleProduct.new_price}</span>
             <div className={css.quantityContainer}>
               <h3>Quantity:</h3>
               <div className={css.quantityDescription}>
