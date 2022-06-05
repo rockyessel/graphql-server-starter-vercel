@@ -18,7 +18,7 @@ import 'react-medium-image-zoom/dist/styles.css';
 import { useManageContext } from '../../context/ManageStateContext';
 import { Footer } from '../../components';
 
-const ProductCredentials = ({ singleProduct }) => {
+const ProductCredentials = () => {
   // Querying for data from backend (SANITY)
 
 
