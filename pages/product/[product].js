@@ -21,7 +21,7 @@ import { Footer } from '../../components';
 const ProductCredentials = ({ singleProduct, commentProduct }) => {
   // Querying for data from backend (SANITY)
 
-  console.log(commentProduct)
+  console.log(commentProduct);
 
   const displayComment = commentProduct.commentsData;
 
@@ -44,7 +44,7 @@ const ProductCredentials = ({ singleProduct, commentProduct }) => {
     decreaseQuantity,
   } = useManageContext();
 
-  const [comments, setComments] = useState('');
+  const [commentBody, setCommentBody] = useState('');
   const [names, setNames] = useState('');
   const [email, setEmail] = useState('');
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -248,9 +248,9 @@ const ProductCredentials = ({ singleProduct, commentProduct }) => {
                   placeholder='Write something about this product'
                   name='comment'
                   ref={commentsEl}
-                  value={comments}
+                  value={commentBody}
                   required
-                  onChange={(event) => setComments(event.target.value)}
+                  onChange={(event) => setCommentBody(event.target.value)}
                 />
               </section>
               {showSuccessMessage && (
