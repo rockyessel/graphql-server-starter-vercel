@@ -6,10 +6,6 @@ import Link from 'next/link';
 import Head from 'next/head';
 
 const Category = ({ categorySlug }) => {
-  const imageProps = useNextSanityImage(
-    configuredSanityClient,
-    mySanityData.image
-  );
   return (
     <div className={css.main}>
       <Head>
