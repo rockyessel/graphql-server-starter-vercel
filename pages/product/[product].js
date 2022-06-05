@@ -123,7 +123,8 @@ const ProductCredentials = ({ singleProduct }) => {
             </div>
           </Link>
         </section>
-        <section className={css.productSection}>
+
+        {/* <section className={css.productSection}>
           <div className={css.imageSection}>
             <div className={css.image}>
               <div className={css.hide}>
@@ -206,7 +207,7 @@ const ProductCredentials = ({ singleProduct }) => {
               </button>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* <section className={css.productComment}>
           <div className={css.formContainer}>
