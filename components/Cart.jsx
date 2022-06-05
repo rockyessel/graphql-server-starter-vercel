@@ -65,7 +65,7 @@ const Cart = () => {
               <h3>Empty Cart</h3>
               <p>Add a product and check again.</p>
             </div>
-            <img src='/add.gif' alt='' />
+            <img src='/add.gif' alt='gif' />
             <Link href='/'>
               <button
                 type='button'
@@ -82,6 +82,7 @@ const Cart = () => {
           {cartItems.map((item) => (
             <div className={css.cartProductCard} key={item._id}>
               <img
+                alt='image-of-product'
                 src={urlFor(item?.image[0])}
                 className={css.cartProductImage}
               />
