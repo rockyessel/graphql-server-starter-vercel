@@ -23,7 +23,7 @@ const ProductCredentials = ({ singleProduct, commentProduct }) => {
 
   console.log(commentProduct);
 
-  const displayComment = commentProduct.commentsData;
+ commentProduct.commentsData;
 
   const [index, setIndex] = useState(0);
   const {
@@ -268,7 +268,7 @@ const ProductCredentials = ({ singleProduct, commentProduct }) => {
               </section>
             </form>
 
-            {displayComment.length !== 0 && (
+            {commentProduct.commentsData.length !== 0 && (
               <div className={css.commentSectionBox}>
                 <div className={css.headerComment}>
                   <span className={css.commentNumber}>
@@ -278,7 +278,7 @@ const ProductCredentials = ({ singleProduct, commentProduct }) => {
                 </div>
 
                 <div className={css.commentBox}>
-                  {displayComment?.map((comment) => (
+                  {commentProduct.commentsData?.map((comment) => (
                     <section key={comment?._id} className={css.commentSection}>
                       <div className={css.userAndProduct}>
                         <div className={css.commenterName}>
@@ -304,7 +304,7 @@ const ProductCredentials = ({ singleProduct, commentProduct }) => {
               </div>
             )}
 
-            {!displayComment.length && (
+            {!commentProduct.commentsData.length && (
               <span>Be the first to leave a comment</span>
             )}
           </div>
