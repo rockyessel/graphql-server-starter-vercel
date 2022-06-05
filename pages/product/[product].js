@@ -22,14 +22,7 @@ const ProductCredentials = ({ singleProduct, commentProduct }) => {
   // Querying for data from backend (SANITY)
 
   const [index, setIndex] = useState(0);
-  // const {
-  //   _id,
-  //   name,
-  //   image,
-  //   slug: { current },
-  //   description,
-  //   new_price,
-  // } = singleProduct;
+
 
   const {
     addToCart,
@@ -131,7 +124,7 @@ const ProductCredentials = ({ singleProduct, commentProduct }) => {
                     src={urlFor(
                       singleProduct.image && singleProduct.image[index]
                     )}
-                    alt={current}
+                    alt={singleProduct.current}
                     className={css.img}
                     loading='lazy'
                   />
