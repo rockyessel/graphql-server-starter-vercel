@@ -110,7 +110,6 @@ const ProductCredentials = ({ singleProduct, commentProduct }) => {
   if (router.isFallback) {
     return <div>Loading....</div>;
   } else {
-    console.log('comments', comments);
     return (
       <div className={css.ProductCredentials}>
         <Head>
@@ -368,7 +367,7 @@ export const getStaticProps = async ({ params: { product } }) => {
       // And passing the data to props, to render it later.
       props: {
         singleProduct,
-        commentProduct,
+        commentProduct: JSON.parse(JSON.stringify(commentProduct)),
       },
     };
   }
