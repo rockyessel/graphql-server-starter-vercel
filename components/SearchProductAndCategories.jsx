@@ -4,7 +4,7 @@ import { urlFor } from '../library/client';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
 
-const SearchProductAndCategories = ({  data, selectedValue }) => {
+const SearchProductAndCategories = ({ data, selectedValue }) => {
   const [filteredName, setFilteredName] = useState([]);
   const [word, setWord] = useState('');
 
@@ -58,7 +58,6 @@ const SearchProductAndCategories = ({  data, selectedValue }) => {
                       src={urlFor(item.image[0])}
                       width={200}
                       height={200}
-                      {...imageProps}
                       alt={item.slug.current}
                       loading='lazy'
                       layout='responsive'
@@ -86,7 +85,7 @@ const SearchProductAndCategories = ({  data, selectedValue }) => {
             </ul>
           )}
 
-          {!filteredName.length && word.length > 1 && (
+          {!filteredName.length && word.length > 0 && (
             <div className={css.searchProductFirst}>
               <p>Product not found</p>
             </div>

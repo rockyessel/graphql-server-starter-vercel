@@ -21,7 +21,9 @@ import { Footer } from '../../components';
 const ProductCredentials = ({ singleProduct, commentProduct }) => {
   // Querying for data from backend (SANITY)
 
-  const displayComment = commentProduct.comments;
+  console.log(commentProduct)
+
+  const displayComment = commentProduct.commentsData;
 
   const [index, setIndex] = useState(0);
   const {
@@ -108,6 +110,7 @@ const ProductCredentials = ({ singleProduct, commentProduct }) => {
   if (router.isFallback) {
     return <div>Loading....</div>;
   } else {
+    console.log('comments', comments);
     return (
       <div className={css.ProductCredentials}>
         <Head>
@@ -338,7 +341,7 @@ export const getStaticProps = async ({ params: { product } }) => {
   // Querying for data from backend (SANITY)
   const queryProduct = `*[_type == 'product' && slug.current == "${product}"][0]`;
   const queryComment = `*[_type == 'product' && slug.current == '${product}'][0]{
-  'comments': *[_type == 'comment' && product._ref == ^._id]{
+  'commentsData': *[_type == 'comment' && product._ref == ^._id]{
   _id,
   comment,
   username,
