@@ -1,0 +1,134 @@
+.productContainerCard {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  place-items: center;
+  gap: 1rem;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.25rem;
+  width: 15rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0/0.25);
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  background-color: #fff;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.productImage {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productName {
+  font-weight: 700;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.productDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.priceContainer {
+  display: flex;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.green {
+  color: green;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.gray {
+  color: gray;
+  text-decoration: line-through;
+  margin-top: 0.2rem;
+  font-size: 0.75rem;
+}
+
+.btn {
+  width: 5rem;
+  padding: 0.4rem;
+  border: none;
+  background-color: #0066ff;
+  color: white;
+  border-radius: 0.3rem;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  -o-border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1572px) {
+  .cardContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 866px) {
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 574px) {
+  .cardContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media only screen and (max-width: 407px) {
+  .header {
+    font-size: 1.1rem;
+  }
+  .cardContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
