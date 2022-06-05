@@ -5,9 +5,7 @@ import Head from 'next/head';
 
 const Search = ({ result }) => {
   const [selectedValue, setSelectedValue] = useState('name');
-  console.log(result[0].image);
 
-  const imageProps = useNextSanityImage(configuredSanityClient, result.image);
   return (
     <div>
       <Head>

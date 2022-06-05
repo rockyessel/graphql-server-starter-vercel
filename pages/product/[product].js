@@ -30,9 +30,6 @@ const ProductCredentials = ({ singleProduct, commentProduct }) => {
     image,
     slug: { current },
     description,
-    color,
-    tags,
-    old_price,
     new_price,
   } = singleProduct;
 
@@ -360,7 +357,8 @@ export const getStaticProps = async ({ params: { product } }) => {
 
   if (!singleProduct || !commentProduct) {
     return {
-      No_Data: [],
+      No_Data: true,
+      data: [],
     };
   } else {
     return {
