@@ -322,10 +322,11 @@
 
   .cartProductContainer {
     padding: 1rem;
-    height: 40rem;
+    height: 33rem;
   }
 
   .cartProductName {
     width: 20rem;
   }
 }
+
