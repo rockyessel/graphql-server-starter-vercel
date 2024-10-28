@@ -1,9 +1,0 @@
-.main {
-  width: min(100% - 10rem);
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5rem;
-}

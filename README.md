@@ -1,34 +1,100 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# graphql-server-starter-vercel
+
+This is a starter template for building a GraphQL server that can be easily deployed on Vercel. This template provides a foundation for developing your GraphQL API with a focus on simplicity and scalability.
+
+## ⚠️ Status: In Progress
+
+This project is currently under development. Please check back for updates! Last update: 28/10/2024 - 8:48 GMT
+
+## Features
+
+- Easy setup for a GraphQL server
+- Built with Express and Apollo Server
+- Support for CORS and logging using Morgan
+- Middleware for handling GraphQL requests
+- Static file serving
+- Ready for deployment on Vercel
 
 ## Getting Started
 
-First, run the development server:
+To get started with your own GraphQL server, follow these steps:
+
+### Prerequisites
+
+Make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (version 14.x or higher)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/rockyessel/graphql-server-starter-vercel.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd graphql-server-starter-vercel
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   yarn install
+   ```
+
+### Running the Server
+
+To start the server locally, run:
 
 ```bash
-npm run dev
-# or
-yarn dev
+yarn run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The server will run on `http://localhost:8000/graphql` by default.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Deploying to Vercel
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+1. Push your code to a GitHub repository.
+2. Sign in to [Vercel](https://vercel.com/) and create a new project.
+3. Import your GitHub repository and follow the instructions to deploy.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Usage
 
-## Learn More
+Once your server is up and running, you can access the GraphQL API at `http://localhost:8000/graphql`. You can use tools like [Postman](https://www.postman.com/) or [GraphQL Playground](https://github.com/graphql/graphql-playground) to test your API.
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project includes the following scripts:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```json
+"scripts": {
+  "build": "rimraf ./dest && tsc",
+  "start": "node dest/src/server.js",
+  "lint": "eslint . --ext .ts",
+  "dev": "npx nodemon",
+  "start:dev": "rimraf ./dest && tsc && npm start",
+  "postinstall": "patch-package",
+  "deploy": "npm run build && vercel --prod && rimraf ./dest"
+}
+```
 
-## Deploy on Vercel
+- **`test`**: Placeholder for tests.
+- **`build`**: Cleans the destination folder and compiles TypeScript files.
+- **`start`**: Starts the compiled server.
+- **`lint`**: Runs ESLint on the project files.
+- **`dev`**: Starts the server in development mode with Nodemon.
+- **`start:dev`**: Cleans the destination folder, compiles TypeScript files, and starts the server.
+- **`postinstall`**: Runs after npm install to patch any packages.
+- **`deploy`**: Builds the project, deploys it to Vercel, and cleans up the destination folder.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Contributions are welcome! If you'd like to contribute, please fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
