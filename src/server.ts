@@ -13,16 +13,24 @@ const serverMsg = `Server running on: http://localhost:${PORT}/graphql`;
 const app: any = express();
 const httpServer = http.createServer(app);
 
+let apolloServerStarted = false;
+
 const startApolloServer = async () => {
   const apolloServer = await createApolloServer(httpServer);
-  await apolloServer.start();
+  // Start the server only if not already started
+  if (!apolloServerStarted) {
+    await apolloServer.start();
+    apolloServerStarted = true;
+  }
+  // Apply middleware once
   apolloServer.applyMiddleware({ app });
+  // Apply dynamic middleware for additional paths
   app.use('/:path/graphql', dynamicGraphQLMiddleware(apolloServer));
 };
 
-app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cors({ origin: '*' }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../public')));
 
