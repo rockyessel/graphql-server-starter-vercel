@@ -101,6 +101,6 @@ export const CambridgeDictionary = gql`
   }
 
   type Query {
-    getWordDetails(entry: String!, locale: LocaleEnum, lang: LangEnum): WordData
+    dictionary(entry: String!, locale: LocaleEnum, lang: LangEnum): WordData
   }
 `;
