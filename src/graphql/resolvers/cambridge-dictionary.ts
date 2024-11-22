@@ -4,7 +4,7 @@ import { ApolloError } from 'apollo-server-express';
 
 export const CambridgeDictionary = {
   Query: {
-    getWordDetails: async (_: ICambridge, args: DictionaryArgs) => {
+    dictionary: async (_: ICambridge, args: DictionaryArgs) => {
       const { entry } = args;
 
       try {
