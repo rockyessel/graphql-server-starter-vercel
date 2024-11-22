@@ -9,7 +9,7 @@ export type AddressType = `0x${string}`;
 
 export interface IUser {
   address: AddressType;
-  blogIds: AddressType[];
+  Ids: AddressType[];
   articleIds: AddressType[];
 }
 
@@ -21,7 +21,7 @@ export interface IArticle {
   slug: string;
   tags: string;
   cover: string;
-  blogId: string;
+  Id: string;
   category: string;
   keywords: string;
   status: string;
@@ -32,108 +32,44 @@ export interface IArticle {
   content: string;
 }
 
-export interface IBlog {
-  id: string;
-  ownerId: string;
-  messageId: string;
-  createdBy: string;
-  name: string;
-  subdomain: string;
-  customDomain?: string;
-  category: string;
-  subCategory: string;
-  isTransferActive: boolean;
-  createdAt: string;
-  updatedAt: string;
-  keywords: string;
-  commonTags: string;
+export interface ICambridge {
+  word: string;
+  pos: string[];
+  audio: Audio[];
+  definitions: Definition[];
+  verbs: Verb[];
+}
+
+export interface DictionaryArgs {
+  entry: string;
+  nationCode?: string;
+  languageCode?: string;
+}
+
+export interface Verb {
+  id: number;
+  type: string;
+  text: string;
+}
+
+export interface Audio {
+  pos: string;
   lang: string;
-  description: string;
-  visibility: string;
-  publishingSchedule: string;
-  status: string;
-  enableComments: boolean;
-  enableNewsletter: boolean;
-  authorPenName: string;
-  socials: {
-    x: string;
-    linkedin: string;
-    instagram: string;
-  } | null;
-  license: LicenseContent;
-  favicon?: string;
+  url: string;
+  pron: string;
 }
 
-export type LicenseType =
-  | 'CreativeCommonsAttribution'
-  | 'MIT'
-  | 'GPL'
-  | 'Apache'
-  | 'Custom'
-  | 'None'
-  | 'OpenAccess'
-  | 'FreeArtLicense'
-  | 'OpenContentLicense'
-  | 'GFDL'
-  | 'CCBYNC'
-  | 'CCBYND'
-  | 'CC0'
-  | 'CCBYSA'
-  | 'CCBY';
-
-export type LicenseContent = {
-  licenseType: LicenseType;
-  contentCid: string;
-};
-
-export interface Org {
-  owner: string;
-  createdBy: string;
-  name: string;
-  username: string;
-  pageType: string;
-  category: string;
-  readme?: string;
-  tags?: string[];
-  focusedTags?: string[];
-  profile?: string;
-  cover?: string;
-  isPremium?: boolean;
-  entryAmount: number;
-  compareEntryAmount: number;
-  createdAt: string;
-  updatedAt: string;
-  status: string;
-  visibility: string;
-  contactEmail?: string;
-  website?: string;
-  pageRules?: string;
-  favicon?: string;
-  title: string;
-  description?: string;
+export interface Example {
+  id: number;
+  text: string;
+  translation: string;
 }
 
-export interface IUserArgs {
-  address: AddressType;
-}
-
-export interface ArticleArgs {
-  id: string;
-  where?: object;
-}
-
-export interface IBlogArgs {
-  id: string;
-  where?: object;
-}
-
-export interface OrgArgs {
-  orgId: string;
-}
-
-export interface AudioArgs {
-  params: {
-    text: string;
-    language: string;
-  };
+export interface Definition {
+  id: number;
+  pos: string;
+  source: string | undefined;
+  text: string;
+  translation: string | undefined;
+  example: Example[];
 }
