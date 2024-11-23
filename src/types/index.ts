@@ -73,3 +73,22 @@ export interface Definition {
   translation: string | undefined;
   example: Example[];
 }
+
+export interface IDummyArgs {
+  userId?: number;
+  skip?: number;
+  limit?: number;
+}
+
+export interface IPost {
+  id: number;
+  title: string;
+  body: string;
+  tags: string[];
+  reactions: {
+    likes: number;
+    views: number;
+  };
+  views: number;
+  userId: number;
+}
