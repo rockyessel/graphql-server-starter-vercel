@@ -11,3 +11,4 @@ const getEnvVariable = (name: string): string => {
 
 // Input anything here, wanted to make sure it worked.
 export const SAMPLE = getEnvVariable('SAMPLE');
+export const JWT_SECRET = getEnvVariable('JWT_SECRET');
