@@ -1,11 +1,11 @@
 import cheerio from 'cheerio';
-import { ICambridge } from '../../types';
+import { ICambridge } from '../../types/index.js';
 import {
   extractDefinitionsFromPage,
   getAudioFromPage,
   getVerbsFromWiki,
   prepareUrl,
-} from './helpers';
+} from './helpers.js';
 
 export const cambridgeProcessEntry = async (
   entry: string,

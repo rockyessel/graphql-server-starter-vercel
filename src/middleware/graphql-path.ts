@@ -1,9 +1,9 @@
-import { IContext } from '../types';
+import { IContext } from '../types/index.js';
 import { ApolloServer } from 'apollo-server-express';
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { SAMPLE_AUTH_KEY } from '../libs/constants';
-import { JWT_SECRET } from '../libs/configs/env';
+import { SAMPLE_AUTH_KEY } from '../libs/constants/index.js';
+import { JWT_SECRET } from '../libs/configs/env.js';
 
 export const dynamicGraphQLMiddleware = (as: ApolloServer<IContext>) => {
   return (req: Request, res: Response, next: NextFunction) => {

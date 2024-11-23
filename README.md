@@ -1,100 +1,155 @@
-# graphql-server-starter-vercel
+# GraphQL Server Starter for Vercel
 
-This is a starter template for building a GraphQL server that can be easily deployed on Vercel. This template provides a foundation for developing your GraphQL API with a focus on simplicity and scalability.
+A minimalistic yet versatile GraphQL server starter designed to streamline the development of GraphQL-powered applications. This project is built with scalability and simplicity in mind, making it suitable for side hustles, educational purposes, or full-fledged production-grade applications.
 
-## ⚠️ Status: In Progress
+## Key Features
 
-This project is currently under development. Please check back for updates! Last update: 28/10/2024 - 8:48 GMT
+### 1. **Dynamic GraphQL API**
+   - Users have their own dynamic GraphQL endpoints at `/username/graphql`.
+   - Each user endpoint is protected with **authorization**, ensuring privacy and security. Unauthorized access attempts are denied.
 
-## Features
+### 2. **Global GraphQL Endpoint**
+   - Publicly accessible at `/graphql` without restrictions.
+   - Ideal for shared resources or testing purposes.
 
-- Easy setup for a GraphQL server
-- Built with Express and Apollo Server
-- Support for CORS and logging using Morgan
-- Middleware for handling GraphQL requests
-- Static file serving
-- Ready for deployment on Vercel
+### 3. **Dictionary Query Functionality**
+   - Enables users to search for word meanings.
+   - Utilizes web scraping techniques to fetch dictionary data.
+   - Great for developers new to web scraping—learn foundational techniques from the codebase.
+
+### 4. **Customizable GraphQL Queries**
+   - The power of GraphQL allows users to:
+     - Fetch only the fields they need.
+     - Control how the data is displayed and accessed.
+   - Supports resource queries like `users` and `posts`, demonstrating relational data handling.
+
+---
 
 ## Getting Started
 
-To get started with your own GraphQL server, follow these steps:
-
 ### Prerequisites
-
-Make sure you have the following installed on your machine:
-
-- [Node.js](https://nodejs.org/) (version 14.x or higher)
-- [npm](https://www.npmjs.com/) (comes with Node.js)
+- **Node.js** (v16 or later)
+- A **Vercel account** for deployment
 
 ### Installation
 
 1. Clone the repository:
-
    ```bash
    git clone https://github.com/rockyessel/graphql-server-starter-vercel.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
    cd graphql-server-starter-vercel
    ```
 
-3. Install the dependencies:
-
+2. Install dependencies:
    ```bash
-   yarn install
+   npm install
    ```
 
-### Running the Server
+3. Configure the environment variables:
+   - Create a `.env` file in the project root.
+   - Add the necessary variables:
+     ```env
+     SAMPLE='HelloWorld'
+     JWT_SECRET="JWT_SECRET"
+     ```
 
-To start the server locally, run:
+4. Run the server locally:
+   ```bash
+   npm run dev
+   ```
 
-```bash
-yarn run dev
-```
+5. Visit the endpoints:
+   - Public endpoint: [http://localhost:4000/graphql](http://localhost:4000/graphql)
+   - Dynamic user endpoint (example): [http://localhost:4000/emilys/graphql](http://localhost:4000/emilys/graphql)
 
-The server will run on `http://localhost:8000/graphql` by default.
+---
 
-### Deploying to Vercel
+## Deployment on Vercel
 
-1. Push your code to a GitHub repository.
-2. Sign in to [Vercel](https://vercel.com/) and create a new project.
-3. Import your GitHub repository and follow the instructions to deploy.
+1. Fork or clone the repository.
+2. Link the project to your Vercel account.
+3. Add environment variables in the Vercel dashboard.
+4. Deploy the project with one click from the dashboard.
 
-## Usage
+---
 
-Once your server is up and running, you can access the GraphQL API at `http://localhost:8000/graphql`. You can use tools like [Postman](https://www.postman.com/) or [GraphQL Playground](https://github.com/graphql/graphql-playground) to test your API.
+## Example Queries
 
-## Scripts
-
-This project includes the following scripts:
-
-```json
-"scripts": {
-  "build": "rimraf ./dest && tsc",
-  "start": "node dest/src/server.js",
-  "lint": "eslint . --ext .ts",
-  "dev": "npx nodemon",
-  "start:dev": "rimraf ./dest && tsc && npm start",
-  "postinstall": "patch-package",
-  "deploy": "npm run build && vercel --prod && rimraf ./dest"
+### Dictionary Query
+Fetch the meaning of a word:
+```graphql
+query {
+  dictionary(word: "example") {
+    word
+    meaning
+  }
 }
 ```
 
-- **`test`**: Placeholder for tests.
-- **`build`**: Cleans the destination folder and compiles TypeScript files.
-- **`start`**: Starts the compiled server.
-- **`lint`**: Runs ESLint on the project files.
-- **`dev`**: Starts the server in development mode with Nodemon.
-- **`start:dev`**: Cleans the destination folder, compiles TypeScript files, and starts the server.
-- **`postinstall`**: Runs after npm install to patch any packages.
-- **`deploy`**: Builds the project, deploys it to Vercel, and cleans up the destination folder.
+### User Query
+Fetch user details and their posts:
+```graphql
+query {
+  user(username: "emilys") {
+    name
+    email
+    posts {
+      title
+      content
+    }
+  }
+}
+```
+
+### Post Query
+Fetch all posts:
+```graphql
+query {
+  posts {
+    title
+    author {
+      username
+      email
+    }
+  }
+}
+```
+
+---
+
+## Security and Authorization
+
+- Public endpoints (`/graphql`) are accessible without restrictions.
+- Private endpoints (`/username/graphql`) require a valid authorization token.
+- Unauthorized attempts to access protected resources are denied with an appropriate error message.
+
+---
+
+## Learnings and Highlights
+
+1. **Web Scraping Techniques:**
+   - Explore the dictionary query feature to understand scraping fundamentals.
+
+2. **Dynamic GraphQL Endpoints:**
+   - Learn how to set up and manage user-specific paths dynamically.
+
+3. **Authorization in GraphQL:**
+   - Implement secure access control to sensitive resources.
+
+---
 
 ## Contributing
 
-Contributions are welcome! If you'd like to contribute, please fork the repository and submit a pull request.
+Contributions are welcome! If you have ideas for improvements or additional features, feel free to open an issue or submit a pull request.
+
+---
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgments
+
+- Special thanks to [rockyessel](https://github.com/rockyessel) for this incredible starter project.
+- Inspired by the need for scalable and secure GraphQL applications.
