@@ -3,6 +3,10 @@ export const isVercelProduction = process.env.VERCEL === '1';
 export const CAMBRIDGE_BASE_URL = 'https://dictionary.cambridge.org';
 export const WIKI_BASE_URL = 'https://simple.wiktionary.org/wiki';
 
+export const DUMMY_BASE_API = 'https://dummyjson.com';
+
+export const SAMPLE_AUTH_KEY = 'x-username-access-token-jwt';
+
 export const dictionaryLanguage = [
   { name: 'English', code: 'en' },
   { name: 'English-Chinese (Simplified)', code: 'en_zhs' },
